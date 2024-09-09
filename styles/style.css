@@ -1,0 +1,68 @@
+/* Root variables */
+:root{
+    background:rgb(43, 38, 49);
+    --primary: 0, 0 ,0;
+    --secondary: 0, 0, 0;
+    --tertiary: 0, 0, 0;
+    --text: 255, 255, 255;
+    --bg: 0, 0, 0;
+    --heading:verdana, sans-serif;
+    --font: system-ui;
+    color: rgba(var(--text), 1);
+}
+
+/* CSS reset */
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html, body, main{
+    height: 100vh;
+    max-height: 100vh;
+}
+
+/* General styling */
+h1, h2, h3, h4, h5, h6{
+    font-family: var(--heading);
+}
+
+/* testing */
+main{
+    background: rgb(66, 66, 77);
+    /* overflow: hidden; */
+}
+section{
+    margin: 0 auto;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 100vh;
+    background: red;
+    padding: 20px;
+    gap: 1.125rem;
+}
+div{
+    display: flex;
+    flex-direction: column;
+    background: orange;
+}
+h2{
+    background: blue;
+}
+
+section:nth-child(1) > div:nth-child(1){
+    grid-column: span 4;
+    grid-column-end: 6;
+    grid-row: span 2;
+    grid-row-end: 4;
+}
+
+section:nth-child(1) > div:nth-child(2){
+    grid-column: span 4;
+    grid-column-end: 12;
+    grid-row: span 2;
+    grid-row-end: 3;
+}
