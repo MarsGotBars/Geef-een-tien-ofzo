@@ -9,6 +9,7 @@
     --heading:verdana, sans-serif;
     --font: system-ui;
     color: rgba(var(--text), 1);
+    font-family: var(--font);
 }
 
 /* CSS reset */
@@ -69,3 +70,7 @@ div:nth-child(2){
     grid-row-end: 4;
 }
 
+img{
+    object-fit: contain;
+    width: 100%;
+}
