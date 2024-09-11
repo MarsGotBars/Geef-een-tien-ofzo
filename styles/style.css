@@ -19,13 +19,23 @@
   padding: 0;
   margin: 0;
 }
-svg path {
-  stroke: red;
+
+/*scrollbar styling*/ 
+::-webkit-scrollbar {
+    width: 10px;
+    background:rgb(43, 38, 49) ;
 }
-html,
-body,
-main {
-  min-height: 100vh;
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 8, 255, 0.393); 
+    border-radius: 10px;
+}
+
+html, body, main{
+    min-height: 100vh;
 }
 
 /* General styling */
