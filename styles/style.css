@@ -51,6 +51,7 @@ div{
 }
 h2{
     background: blue;
+    text-align: center;
 }
 
 div:nth-child(1){
