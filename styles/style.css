@@ -51,6 +51,7 @@ div{
 }
 h2{
     background: blue;
+    text-align: center;
 }
 
 div:nth-child(1){
@@ -86,5 +87,20 @@ img{
 @media screen and (max-width: 1000px) {
     section{
         background: purple;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+    }
+
+    div:nth-child(1){
+        grid-column: span 3 / span 3;
+        grid-column-end: 6;
+        grid-row-start: 1;
+        /* grid-row: span 2 / span 2; */
+        
+    }
+    div:nth-child(2){
+        grid-column: span 3 / span 3;
+        grid-row: span 2 / span 2;
+        grid-row-end: 6;
     }
 }
