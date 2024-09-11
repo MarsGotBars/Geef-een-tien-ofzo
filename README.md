@@ -8,3 +8,14 @@ De instructie van deze leertaak staan in de [INSTRUCTIONS.md](https://github.com
 ## Licentie
 
 This project is licensed under the terms of the [MIT license](./LICENSE).
+
+## To do
+
+- animation related
+- [ ]  fade-in (both desktop & mobile)
+    - optional
+    - [ ]  parallax effect
+
+- image container
+- [ ] get images of students
+- [ ] change grid on mobile
