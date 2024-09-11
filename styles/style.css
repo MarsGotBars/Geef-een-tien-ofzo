@@ -1,41 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=SUSE:wght@100..800&display=swap");
 /* Root variables */
 :root {
-  background: rgb(43, 38, 49);
+  /* background: rgb(43, 38, 49); */
   --primary: 247, 221, 28;
   --secondary: 126, 148, 251;
   --accent: 255, 243, 84;
   --text: 12, 11, 0;
   --bg: 254, 253, 237;
+  /* ander font nodig? */
   --heading: "Bevan", sans-serif;
-  --font: "SUSE";
+  --font: "SUSE", verdana;
   color: rgba(var(--text), 1);
   font-family: var(--font);
+  background: rgba(var(--bg), 1);
 }
 
 /* CSS reset */
 * {
+  /* dit breekt wat animations? */
+  /* transition: all 300ms ease; */
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-/*scrollbar styling*/ 
-::-webkit-scrollbar {
-    width: 10px;
-    background:rgb(43, 38, 49) ;
-}
-::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
-    border-radius: 10px;
-}
-::-webkit-scrollbar-thumb {
-    background: rgba(0, 8, 255, 0.393); 
-    border-radius: 10px;
-}
-
-html, body, main{
-    min-height: 100vh;
+html,
+body,
+main {
+  min-height: 100vh;
 }
 
 /* General styling */
@@ -47,37 +39,43 @@ h5,
 h6 {
   font-family: var(--heading);
   color: rgba(var(--accent), 1);
+  /* mask de text? */
 }
 
+h1 {
+  padding-right: 1rem;
+  font-size: clamp(1rem, 4vw, 2rem);
+}
 /* testing */
 header {
-  display: flex;
-  justify-content: flex-end;
+  z-index: 10;
+  
   position: fixed;
   top: 0;
   left: 0;
 }
 
-header h1 {
+header a{
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  text-decoration: none;
 }
 
 header div {
-  min-width: 4rem;
-  min-height: 4rem;
-  height: 5vw;
-  width: 5vw;
+  height: clamp(3rem, 6.5vw, 6rem);
+  width: clamp(3rem, 6.5vw, 6rem);
   -webkit-mask: url("../assets/hummingbird-svgrepo-com.svg") no-repeat center;
   mask: url("../assets/hummingbird-svgrepo-com.svg") no-repeat center;
   background: rgb(2, 0, 36);
   background: linear-gradient(
     90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(255, 226, 0, 1) 100%
+    rgba(var(--primary)) 0%,
+    rgba(var(--accent)) 100%
   );
 }
-
+header:hover a{
+  background-color: red;
+}
 main {
   background: rgba(var(--bg), 1);
   /* overflow: hidden; */
@@ -90,20 +88,23 @@ section {
   grid-template-rows: repeat(3, 1fr);
   height: 100vh;
   background: rgba(var(--bg), 1);
-  padding: 20px;
+  padding: 1.25rem;
   gap: 0.125rem;
 }
+
 div {
-  display: flex;
+  display: grid;
+  place-items: center;
   flex-direction: column;
-  background: orange;
-}
-h2 {
-  background: blue;
-  text-align: center;
 }
 
-div:nth-child(1) {
+div figure {
+  z-index: 2;
+  border-radius: .375rem;
+}
+
+section div:nth-child(1) {
+  opacity: 0;
   grid-column: span 4;
   grid-column-end: 12;
   grid-row: span 2;
@@ -112,9 +113,34 @@ div:nth-child(1) {
   flex-direction: column-reverse;
   width: fit-content;
   place-content: center;
+  transform: translateY(100px);
+  animation: fade-in 500ms forwards;
 }
 
-div:nth-child(2) {
+div h2 {
+  z-index: 1;
+  opacity: 0;
+  transition: ease 300ms;
+}
+
+section div:nth-child(1) h2 {
+  opacity: 1;
+  transform: translateY(-100px);
+}
+section div:nth-child(2) h2 {
+  opacity: 1;
+  transform: translateY(100px);
+}
+
+section div:nth-child(1):hover h2,
+section div:nth-child(2):hover h2 {
+  transform: translateY(0);
+}
+
+section div:nth-child(2) {
+  opacity: 0;
+  transform: translateY(100px);
+  animation: fade-in 500ms 200ms forwards;
   grid-column: span 4;
   grid-column-end: 6;
   grid-row: span 2;
@@ -132,41 +158,74 @@ img {
   object-fit: cover;
 }
 
+/* deze omzetten naar min-width */
 @media screen and (max-width: 1000px) {
   section {
     background: green;
     grid-template-columns: repeat(7, 1fr);
   }
-  div:nth-child(1) {
+  section div:nth-child(1) {
     grid-row: span 2 / span 2;
     grid-row-start: 1;
     grid-column: span 3 / span 3;
     grid-column-end: 8;
   }
-  div:nth-child(2) {
+  section div:nth-child(2) {
     grid-row: span 2 / span 2;
     grid-row-start: 2;
     grid-column: span 3 / span 3;
     grid-column-end: 4;
   }
 }
-
+/* en deze ook! */
 @media screen and (max-width: 720px) {
   section {
     background: purple;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    /* change to 4 rows and add gap? */
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1.25rem;
   }
 
-  div:nth-child(1) {
+  section div:nth-child(1) {
+    flex-direction: row;
     grid-column: span 3 / span 3;
     grid-column-end: 6;
     grid-row-start: 1;
     /* grid-row: span 2 / span 2; */
   }
-  div:nth-child(2) {
+
+  section div:nth-child(2) {
+    flex-direction: row-reverse;
     grid-column: span 3 / span 3;
     grid-row: span 2 / span 2;
-    grid-row-end: 6;
+    grid-row-end: 5;
+  }
+  section div:nth-child(1) h2 {
+    transform: rotate(-90deg);
+  }
+}
+
+/*scrollbar styling*/
+::-webkit-scrollbar {
+  width: 10px;
+  background: rgb(43, 38, 49);
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 8, 255, 0.393);
+  border-radius: 10px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
