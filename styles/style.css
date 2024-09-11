@@ -29,6 +29,28 @@ h1, h2, h3, h4, h5, h6{
 }
 
 /* testing */
+header{
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+header h1{
+    display: flex;
+    align-items: center;
+    color: #87ceeb;
+}
+
+header img{
+    min-width: 4rem;
+    min-height: 4rem;
+    height: 5vw;
+    width: 5vw;
+    stroke: rgb(255, 0, 0);
+}
+
 main{
     background: rgb(66, 66, 77);
     /* overflow: hidden; */
@@ -122,4 +144,5 @@ img{
         grid-row: span 2 / span 2;
         grid-row-end: 6;
     }
+
 }
