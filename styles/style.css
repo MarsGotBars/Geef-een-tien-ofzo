@@ -42,7 +42,7 @@ section{
     height: 100vh;
     background: red;
     padding: 20px;
-    gap: 1.125rem;
+    gap: .125rem;
 }
 div{
     display: flex;
@@ -73,6 +73,7 @@ div:nth-child(2){
 }
 figure{
     height: 100%;
+    overflow: hidden;
 }
 
 img{
@@ -80,4 +81,10 @@ img{
   height: 100%;
   object-fit: cover;
 
+}
+
+@media screen and (max-width: 1000px) {
+    section{
+        background: purple;
+    }
 }
