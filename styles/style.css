@@ -60,6 +60,8 @@ div:nth-child(1){
     grid-row-end: 3;
     display: flex;
     flex-direction: column-reverse;
+    width: fit-content;
+    place-content: center;
 }
 
 div:nth-child(2){
@@ -67,9 +69,15 @@ div:nth-child(2){
     grid-column-end: 6;
     grid-row: span 2;
     grid-row-end: 4;
+    width: fit-content;
+}
+figure{
+    height: 100%;
 }
 
 img{
-    object-fit: contain;
     width: 100%;
+  height: 100%;
+  object-fit: cover;
+
 }
