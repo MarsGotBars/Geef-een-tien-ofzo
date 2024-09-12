@@ -64,15 +64,16 @@ header a{
     rgba(var(--secondary)) 0%,
     rgba(var(--primary)) 100%
   );
-  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 header div {
   height: clamp(3rem, 6.5vw, 6rem);
   width: clamp(3rem, 6.5vw, 6rem);
   background-image: url('../assets/hummingbird-svgrepo-com.svg');
-  background-clip: text;
-  /* background: rgb(2, 0, 36); */
+  background-size: cover;
+  background-color: inherit;
+  background-blend-mode: multiply;
 }
 header:hover a{
   /* background-color: red; */
