@@ -1,14 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=SUSE:wght@100..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=SUSE:wght@100..800&display=swap');
 /* Root variables */
 :root {
   /* background: rgb(43, 38, 49); */
-  --primary: 247, 221, 28;
-  --secondary: 126, 148, 251;
-  --accent: 255, 243, 84;
-  --text: 12, 11, 0;
-  --bg: 254, 253, 237;
+  --primary: 242, 214, 28;
+  --inter: 168, 174, 173;
+  --secondary: 218, 200, 108;
+  --accent: 63, 161, 244;
+  --text: 17, 14, 1;
+  --bg: 255, 254, 249;
   /* ander font nodig? */
-  --heading: "Bevan", sans-serif;
+  --heading: "Nunito", sans-serif;
   --font: "SUSE", verdana;
   color: rgba(var(--text), 1);
   font-family: var(--font);
@@ -42,6 +43,9 @@ h6 {
   /* mask de text? */
 }
 
+color{
+  color: #7e94fb;
+}
 h1 {
   padding-right: 1rem;
   font-size: clamp(1rem, 4vw, 2rem);
@@ -49,7 +53,6 @@ h1 {
 /* testing */
 header {
   z-index: 10;
-  
   position: fixed;
   top: 0;
   left: 0;
@@ -59,32 +62,36 @@ header a{
   display: flex;
   align-items: flex-end;
   text-decoration: none;
-  background-image: linear-gradient(
-    90deg,
-    rgba(var(--secondary)) 0%,
-    rgba(var(--primary)) 100%
-  );
-  background-clip: text;
+  color: rgba(var(--primary));
 }
 
 header div {
   height: clamp(3rem, 6.5vw, 6rem);
   width: clamp(3rem, 6.5vw, 6rem);
-  background-image: url('../assets/hummingbird-svgrepo-com.svg');
-  background-size: cover;
-  background-color: inherit;
-  background-blend-mode: multiply;
+  mask-image: url('../assets//hummingbird-svgrepo-com.svg');
+  background-image: linear-gradient(
+    90deg,
+    rgba(var(--accent)) 0%,
+    rgba(var(--primary)) 100%
+  );
+  background-size: 200px 1px;
 }
+
+header:hover div{
+  background-position: -100px;
+}
+
+header h1{
+  background-image: rgba(var(--primary))
+}
+
 header:hover a{
   /* background-color: red; */
   
 }
 
 header h1 {
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  z-index: 50;
 }
 main {
   background: rgba(var(--bg), 1);
