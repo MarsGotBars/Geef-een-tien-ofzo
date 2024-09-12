@@ -230,9 +230,7 @@ img {
   section div:nth-child(2) h2 {
     transform: rotate(-90deg);
   }
-
 }
-
 
 /*scrollbar styling*/
 ::-webkit-scrollbar {
