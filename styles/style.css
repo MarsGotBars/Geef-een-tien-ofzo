@@ -166,6 +166,7 @@ section div:nth-child(2) {
   grid-row: span 2;
   grid-row-end: 4;
   width: fit-content;
+  
 }
 figure {
   height: 100%;
@@ -209,7 +210,7 @@ img {
 
   section div:nth-child(1) {
     flex-direction: row;
-    grid-column: span 3 / span 3;
+    grid-column: span 4 / span 4;
     grid-column-end: 6;
     grid-row-start: 1;
     /* grid-row: span 2 / span 2; */
@@ -217,14 +218,21 @@ img {
 
   section div:nth-child(2) {
     flex-direction: row-reverse;
-    grid-column: span 3 / span 3;
+    grid-column: span 4 / span 4;
     grid-row: span 2 / span 2;
     grid-row-end: 5;
+    display: flex;
   }
   section div:nth-child(1) h2 {
     transform: rotate(-90deg);
   }
+
+  section div:nth-child(2) h2 {
+    transform: rotate(-90deg);
+  }
+
 }
+
 
 /*scrollbar styling*/
 ::-webkit-scrollbar {
