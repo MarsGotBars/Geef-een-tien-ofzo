@@ -1,14 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=SUSE:wght@100..800&display=swap");
 /* Root variables */
 :root {
-  /* background: rgb(43, 38, 49); */
   --primary: 242, 214, 28;
   --inter: 168, 174, 173;
   --secondary: 218, 200, 108;
   --accent: 63, 161, 244;
   --text: 17, 14, 1;
   --bg: 255, 254, 249;
-  /* ander font nodig? */
   --heading: "Nunito", sans-serif;
   --font: "SUSE", verdana;
   color: rgba(var(--text), 1);
@@ -18,7 +16,6 @@
 
 /* CSS reset */
 * {
-  /* dit breekt wat animations? */
   transition: all 300ms ease;
   box-sizing: border-box;
   padding: 0;
@@ -43,14 +40,13 @@ h5,
 h6 {
   font-family: var(--heading);
   color: rgba(var(--primary), 1);
-  /* mask de text? */
 }
 
 h1 {
   padding-right: 1rem;
   font-size: clamp(1rem, 4vw, 2rem);
 }
-/* testing */
+
 header {
   z-index: 10;
   position: fixed;
@@ -86,16 +82,11 @@ header h1 {
   background-image: rgba(var(--primary));
 }
 
-header:hover a {
-  /* background-color: red; */
-}
-
 header h1 {
   z-index: 50;
 }
 main {
   background: rgba(var(--bg), 1);
-  /* overflow: hidden; */
 }
 
 section {
@@ -110,8 +101,6 @@ section {
   background: purple;
   padding: 1.25rem 0;
   scroll-snap-align: center;
-  scroll-padding: 5rem;
-
 }
 
 
