@@ -220,13 +220,21 @@ img {
     grid-column: span 3 / span 3;
     grid-column-end: 4;
   }
+  div h2 {
+    z-index: 1;
+    opacity: 0;
+    transition: ease 300ms;
+  }
+  div:hover h2{
+    opacity: 1;
+  }
 }
 /* large screen */
 @media screen and (min-width: 1000px) {
   section {
-    background: red;
     grid-template-columns: repeat(12, 1fr);
   }
+
   section div:nth-child(1) {
     opacity: 0;
     transform: translateY(100px);
@@ -239,16 +247,11 @@ img {
     animation: fade-in 500ms 100ms forwards;
   }
 
-  div h2 {
-    z-index: 1;
-    opacity: 0;
-    transition: ease 300ms;
-  }
-
   section div:nth-child(1) h2 {
     transform: translateY(-100px);
     opacity: 1;
   }
+
   section div:nth-child(2) h2 {
     opacity: 1;
     transform: translateY(100px);
