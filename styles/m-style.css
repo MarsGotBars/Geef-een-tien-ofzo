@@ -25,7 +25,7 @@
 html,
 body,
 main {
-  scroll-snap-type:y mandatory;
+  scroll-snap-type: y mandatory;
   transition: 100ms ease;
   scroll-behavior: smooth;
   min-height: 100vh;
@@ -69,7 +69,7 @@ header div {
   mask-image: url("../assets//hummingbird-svgrepo-com.svg");
   background-image: linear-gradient(
     90deg,
-    rgba(var(--accent), .6) 0%,
+    rgba(var(--accent), 0.6) 0%,
     rgba(var(--primary), 1) 100%
   );
   background-size: 200px 1px;
@@ -92,10 +92,21 @@ section {
   margin: 0 auto;
   max-width: 1200px;
   background: rgba(var(--bg), 1);
+  background-size: 10px 10px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(var(--accent), 0.5) 0,
+    rgba(var(--accent), 0.5) 0.125rem,
+    transparent 0,
+    transparent 50%
+  );
   padding: 1.25rem 0;
   scroll-snap-align: center;
 }
-
+/* kleine fix om de background goed uit te lijnen */
+section:nth-child(odd){
+  background-position: 0 .3125rem;
+}
 
 div {
   display: grid;
@@ -137,16 +148,16 @@ section div:nth-child(1) h2 {
   transform: rotate(-90deg);
 }
 
-section div:nth-child(1) figure{
-  border-radius: .375rem 0 0 .375rem;
+section div:nth-child(1) figure {
+  border-radius: 0.375rem 0 0 0.375rem;
 }
 
 section div:nth-child(2) h2 {
   transform: rotate(90deg);
 }
 
-section div:nth-child(2) figure{
-  border-radius: 0 .375rem .375rem 0;
+section div:nth-child(2) figure {
+  border-radius: 0 0.375rem 0.375rem 0;
 }
 
 figure {
@@ -160,20 +171,27 @@ img {
   object-fit: cover;
 }
 
-
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+html{
+  scrollbar-width: none;
+}
 /* medium screen */
 @media screen and (min-width: 720px) {
-  section div:nth-child(1) figure, section div:nth-child(1) img, section div:nth-child(2) figure, section div:nth-child(2) img{
-    border-radius: .375rem;
+  html{
+    scrollbar-width: initial;
+  }
+
+  section div:nth-child(1) figure,
+  section div:nth-child(1) img,
+  section div:nth-child(2) figure,
+  section div:nth-child(2) img {
+    border-radius: 0.375rem;
   }
   section {
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(3, 1fr);
-<<<<<<< HEAD:styles/style.css
-    background: rgba(var(--bg), 1);
-=======
-    background: rgba(var(--bg));
->>>>>>> 84cca0f1fbbe7e521ce2d04c6f5858c2ac1bc150:styles/m-style.css
     padding: 1.25rem;
   }
   section div {
@@ -217,7 +235,7 @@ img {
     transition: ease 300ms;
   }
 
-  div:hover h2{
+  div:hover h2 {
     opacity: 1;
   }
 }
@@ -225,6 +243,8 @@ img {
 @media screen and (min-width: 1000px) {
   section {
     grid-template-columns: repeat(12, 1fr);
+    border-left: 1px solid rgba(var(--accent), .5);
+    border-right: 1px solid rgba(var(--accent), .5);
   }
 
   section div:nth-child(1) {
