@@ -28,6 +28,9 @@
 html,
 body,
 main {
+  scroll-snap-type:y mandatory;
+  transition: 100ms ease;
+  scroll-behavior: smooth;
   min-height: 100vh;
 }
 
@@ -106,6 +109,9 @@ section {
   background: rgba(var(--bg), 1);
   background: purple;
   padding: 1.25rem 0;
+  scroll-snap-align: center;
+  scroll-padding: 5rem;
+
 }
 
 
@@ -174,7 +180,6 @@ img {
 
 
 /* medium screen */
-/* ! let op deze overwriten ook items op de large screen */
 @media screen and (min-width: 720px) {
   section div:nth-child(1) figure, section div:nth-child(1) img, section div:nth-child(2) figure, section div:nth-child(2) img{
     border-radius: .375rem;
@@ -182,7 +187,7 @@ img {
   section {
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    background: orange;
+    background: rgba(var(--bg));
     padding: 1.25rem;
   }
   section div {
@@ -225,6 +230,7 @@ img {
     opacity: 0;
     transition: ease 300ms;
   }
+
   div:hover h2{
     opacity: 1;
   }
