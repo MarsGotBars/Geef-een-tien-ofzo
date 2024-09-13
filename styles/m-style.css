@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=SUSE:wght@100..800&display=swap");
 /* Root variables */
 :root {
-  /* background: rgb(43, 38, 49); */
+  /* https://www.realtimecolors.com/?colors=131707-eeffcc-99c63f-9ade91-6fd377&fonts=Inter-Inter */
   --primary: 153, 198, 63;
   --secondary: 154, 222, 145;
   --accent: 111, 211, 119;
