@@ -172,14 +172,9 @@ img {
   object-fit: cover;
 }
 
-/* deze omzetten naar min-width */
-@media screen and (max-width: 1000px) {
-  
-}
-/* en deze ook! */
-@media screen and (max-width: 720px) {
-}
 
+/* medium screen */
+/* ! let op deze overwriten ook items op de large screen */
 @media screen and (min-width: 720px) {
   figure, img{
     border-radius: 0.375rem;
@@ -226,7 +221,7 @@ img {
     grid-column-end: 4;
   }
 }
-
+/* large screen */
 @media screen and (min-width: 1000px) {
   section {
     background: red;
