@@ -21,6 +21,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  
 }
 
 html,
@@ -29,7 +30,7 @@ main {
   scroll-snap-type: y mandatory;
   transition: 100ms ease;
   scroll-behavior: smooth;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* General styling */
@@ -84,7 +85,7 @@ main {
 
 section {
   display: grid;
-  height: 100vh;
+  height: 100dvh;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(4, 1fr);
   gap: 1.25rem;
@@ -200,11 +201,10 @@ html {
 }
 figure > div {
   color: rgba(var(--text), 1);
-  background: rgba(var(--inner-bg), 1);;
+  background: rgba(var(--inner-bg), 1);
   padding: 0.5rem;
   display: flex;
   position: absolute;
-  top: 0;
   height: 100%;
   width: fit-content;
   z-index: 5;
@@ -212,19 +212,21 @@ figure > div {
 }
 
 div:nth-child(1) figure > div {
+  bottom: 0;
   left: 100%;
   justify-content: start;
 }
 
 div:nth-child(2) figure > div {
+  top: 0;
   right: 100%;
   justify-content: end;
 }
 
-div:nth-child(1) figure:hover > div {
+div:nth-child(1):hover figure > div {
   left: 0;
 }
-div:nth-child(2) figure:hover > div {
+div:nth-child(2):hover figure > div {
   right: 0;
 }
 
@@ -248,13 +250,13 @@ ul li a {
   width: 2rem;
 }
 
-ul li:nth-child(3) a{
+ul li:nth-child(3) a {
   display: grid;
   place-content: center;
   color: rgba(var(--text), 1);
   text-decoration: none;
 }
-ul li a{
+ul li a {
   object-fit: cover;
   background-color: rgba(var(--accent));
 }
@@ -270,7 +272,8 @@ ul li:nth-child(3) {
   mask: url("../assets/icons/note.svg") center no-repeat;
 }
 
-ul li:hover a, ul li:active a {
+ul li:hover a,
+ul li:active a {
   background-color: rgba(var(--bg), 1);
 }
 /* medium screen */
@@ -340,9 +343,20 @@ ul li:hover a, ul li:active a {
     grid-column-end: 4;
   }
   div h2 {
+    background-color: rgba(var(--inner-bg));
     z-index: 1;
     opacity: 0;
     transition: cubic-bezier(0.5, 0.05, 0.795, 0.035) 300ms;
+  }
+
+  div:nth-child(1) h2 {
+    padding: 0 0.625rem 0.3125rem 0.625rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+
+  div:nth-child(2) h2 {
+    padding: 0.3125rem 0.625rem 0 0.625rem;
+    border-radius: 0.5rem 0.5rem 0 0;
   }
 
   div:hover h2 {
