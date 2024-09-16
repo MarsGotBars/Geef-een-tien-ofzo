@@ -7,6 +7,7 @@
   --accent: 111, 211, 119;
   --text: 19, 23, 7;
   --bg: 238, 255, 204;
+  --inner-bg: 41, 54, 40;
   --heading: "Nunito", sans-serif;
   --font: "SUSE", verdana;
   color: rgba(var(--text), 1);
@@ -154,6 +155,7 @@ section > div:nth-child(1) {
   grid-column-end: 6;
   grid-row-start: 1;
   display: flex;
+  justify-self: end;
   grid-row: span 2 / span 2;
 }
 
@@ -165,6 +167,7 @@ section > div:nth-child(2) {
   grid-row: span 2 / span 2;
   grid-row-end: 5;
   display: flex;
+  justify-self: start;
 }
 
 section > div:nth-child(1) h2 {
@@ -196,6 +199,8 @@ html {
   scrollbar-width: none;
 }
 figure > div {
+  color: rgba(var(--text), 1);
+  background: rgba(var(--inner-bg), 1);;
   padding: 0.5rem;
   display: flex;
   position: absolute;
@@ -224,7 +229,10 @@ div:nth-child(2) figure:hover > div {
 }
 
 ul {
-  height: 100%;
+  margin: auto 0;
+  height: 75%;
+  justify-content: space-around;
+  gap: 0.25rem;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -241,40 +249,34 @@ ul li a {
 }
 
 ul li:nth-child(3) a{
-  height: 100%;
   display: grid;
   place-content: center;
-  background-color: darkblue;
-  color: red;
+  color: rgba(var(--text), 1);
   text-decoration: none;
 }
-
-ul li:nth-child(1) a {
+ul li a{
   object-fit: cover;
   background-color: rgba(var(--accent));
+}
+ul li:nth-child(1) a {
   mask: url("../assets/icons/github.svg") center no-repeat;
 }
-ul li:nth-child(1):hover a {
-  background-color: rgba(var(--bg), 1);
-}
+
 ul li:nth-child(2) {
+  mask: url("../assets/icons/profile.svg") center no-repeat;
 }
 
 ul li:nth-child(3) {
-  height: 100%;
-  width: fit-content;
-  writing-mode: vertical-rl;
-  text-orientation: upright;
+  mask: url("../assets/icons/note.svg") center no-repeat;
+}
+
+ul li:hover a, ul li:active a {
+  background-color: rgba(var(--bg), 1);
 }
 /* medium screen */
 @media screen and (min-width: 720px) {
   html {
     scrollbar-width: initial;
-  }
-  
-  ul li:nth-child(3) a{
-    width: 100%;
-    height: fit-content;
   }
 
   div:nth-child(2) figure ul {
@@ -289,18 +291,6 @@ ul li:nth-child(3) {
   ul {
     flex-direction: row;
     width: 100%;
-  }
-
-  ul li:nth-child(3) {
-    width: 100%;
-    writing-mode: initial;
-    text-orientation: initial;
-    height: 100%;
-  }
-
-  ul li:nth-child(3) a {
-    width: 100%;
-    height: 100%;
   }
 
   section > div:nth-child(1) figure,
