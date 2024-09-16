@@ -240,6 +240,15 @@ ul li a {
   width: 2rem;
 }
 
+ul li:nth-child(3) a{
+  height: 100%;
+  display: grid;
+  place-content: center;
+  background-color: darkblue;
+  color: red;
+  text-decoration: none;
+}
+
 ul li:nth-child(1) a {
   object-fit: cover;
   background-color: rgba(var(--accent));
@@ -255,12 +264,17 @@ ul li:nth-child(3) {
   height: 100%;
   width: fit-content;
   writing-mode: vertical-rl;
-text-orientation: upright;
+  text-orientation: upright;
 }
 /* medium screen */
 @media screen and (min-width: 720px) {
   html {
     scrollbar-width: initial;
+  }
+  
+  ul li:nth-child(3) a{
+    width: 100%;
+    height: fit-content;
   }
 
   div:nth-child(2) figure ul {
@@ -279,14 +293,14 @@ text-orientation: upright;
 
   ul li:nth-child(3) {
     width: 100%;
-    height: fit-content;
+    writing-mode: initial;
+    text-orientation: initial;
+    height: 100%;
   }
 
   ul li:nth-child(3) a {
-    text-align: center;
-    writing-mode:initial;
-    text-orientation: initial;
     width: 100%;
+    height: 100%;
   }
 
   section > div:nth-child(1) figure,
