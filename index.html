@@ -14,6 +14,74 @@
         <h1>Hum</h1>
       </a>
     </header>
+    <div class="overlay">
+      <div class="squiggle">
+        <h3>Enable audio?</h3>
+        <p>tip: Scroll vertically!</p>
+      </div>
+      <div><button onclick="playMusic(true)">Enable!</button> <button class="decline" onclick="playMusic(false)">Nah!</button></div>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+          <filter id="squiggly-0">
+            <feTurbulence
+              id="turbulence"
+              baseFrequency="0.02"
+              numOctaves="3"
+              result="noise"
+              seed="0"
+            />
+            <feDisplacementMap
+              id="displacement"
+              in="SourceGraphic"
+              in2="noise"
+              scale="6"
+            />
+          </filter>
+          <filter id="squiggly-1">
+            <feTurbulence
+              id="turbulence"
+              baseFrequency="0.02"
+              numOctaves="3"
+              result="noise"
+              seed="1"
+            />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
+          </filter>
+
+          <filter id="squiggly-2">
+            <feTurbulence
+              id="turbulence"
+              baseFrequency="0.02"
+              numOctaves="3"
+              result="noise"
+              seed="2"
+            />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
+          </filter>
+          <filter id="squiggly-3">
+            <feTurbulence
+              id="turbulence"
+              baseFrequency="0.02"
+              numOctaves="3"
+              result="noise"
+              seed="3"
+            />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
+          </filter>
+
+          <filter id="squiggly-4">
+            <feTurbulence
+              id="turbulence"
+              baseFrequency="0.02"
+              numOctaves="3"
+              result="noise"
+              seed="4"
+            />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
+          </filter>
+        </defs>
+      </svg>
+    </div>
     <main>
       <section>
         <div>
@@ -36,19 +104,21 @@
           </figure>
         </div>
         <div>
-          <figcaption><h2>naam</h2></figcaption>
+          <figcaption><h2>Marcin</h2></figcaption>
           <figure>
             <img src="assets/klas/Squad1G-Marcin.webp" alt="temp" />
             <div>
               <ul>
                 <li>
-                  <a href=""></a>
+                  <a href="https://github.com/MarsGotBars"></a>
                 </li>
                 <li>
-                  <a href=""></a>
+                  <a href="https://marsgotbars.github.io/vite-card"></a>
                 </li>
                 <li>
-                  <a href=""></a>
+                  <a
+                    href="https://open.spotify.com/track/454I78HEySdcHE8fcVabTb?si=656aad42d6804acd"
+                  ></a>
                 </li>
               </ul>
             </div>
@@ -129,8 +199,6 @@
                 </li>
                 <li>
                   <a href=""></a>
-                </li>
-                <li>
                 </li>
               </ul>
             </div>
