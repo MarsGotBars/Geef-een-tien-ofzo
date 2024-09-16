@@ -34,7 +34,7 @@ cards.forEach((card) => {
 // play sound on hover
 
 // Enable / Disable audio
-const confirmationSound = new Audio("../assets/audio/yippee.mp3");
+const confirmationSound = new Audio("./assets/audio/yippee.mp3");
 const overlay = document.querySelector(".overlay");
 const body = document.querySelector("body");
 console.log(overlay);
