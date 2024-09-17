@@ -1,3 +1,6 @@
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
 // pak alle divs die een figure element bevatten
 const cards = [...document.querySelectorAll("div:has(figure)")];
 
