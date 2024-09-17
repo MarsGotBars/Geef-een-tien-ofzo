@@ -154,7 +154,7 @@ section > div:nth-child(2):hover figure > img {
 }
 
 section > div:nth-child(1) {
-  transform: translateY(-100px);
+  transform: translateX(100px);
   flex-direction: row;
   grid-column: span 4 / span 4;
   grid-column-end: 6;
@@ -165,7 +165,7 @@ section > div:nth-child(1) {
 }
 
 section > div:nth-child(2) {
-  transform: translateY(100px);
+  transform: translateX(-100px);
   flex-direction: row-reverse;
   grid-column: span 4 / span 4;
   grid-row: span 2 / span 2;
@@ -440,7 +440,7 @@ ul li:active a {
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
@@ -449,9 +449,9 @@ ul li:active a {
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700');
 
 .overlay{
+  text-align: center;
   position: absolute;
   width: 100%;
-  height: 100%;
   z-index: 10;
   display: flex;
   align-items: center;
@@ -469,6 +469,7 @@ ul li:active a {
 .overlay.vanish{
   animation: ease star 800ms forwards;
 }
+
 @keyframes star {
   90%{
     opacity: 1;
@@ -478,6 +479,7 @@ ul li:active a {
     opacity: 0;
   }
 }
+
 .overlay button{
   width: clamp(4rem, 2vw, 5rem);
   padding: .625rem;
@@ -490,7 +492,6 @@ ul li:active a {
 }
 
 .overlay p {
-  text-align: center;
   font-size: 2rem;
 }
 
@@ -532,4 +533,8 @@ ul li:active a {
   line-height: 1;
   /* Include squiggly animation here */
   animation: squiggly-anim 0.34s linear infinite;
+}
+
+@media (prefers-reduced-motion){
+  .squiggle{animation: none}
 }
