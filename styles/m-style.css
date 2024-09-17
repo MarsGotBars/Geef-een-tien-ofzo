@@ -416,7 +416,7 @@ ul li:active a {
   }
   /* kleine fix om de background goed uit te lijnen */
   section:nth-child(odd) {
-    background-position: 0 0.3125rem;
+    background-position: 0 0.65rem;
   }
 }
 
@@ -497,8 +497,8 @@ ul li:active a {
 }
 
 .overlay button:hover, .overlay button:active{
-  filter: brightness(1.2);
-  color: rgba(var(--text), 1);
+  filter: hue-rotate(30deg);
+  color: white;
 }
 
 .overlay svg{

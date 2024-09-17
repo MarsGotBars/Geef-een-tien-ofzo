@@ -1,4 +1,4 @@
-window.onbeforeunload = function () {
+window.onload = () => {
   window.scrollTo(0, 0);
 }
 // pak alle divs die een figure element bevatten
@@ -39,6 +39,7 @@ cards.forEach((card) => {
 // Enable / Disable audio
 const confirmationSound = new Audio("./assets/audio/yippee.mp3");
 const overlay = document.querySelector(".overlay");
+const overlayTitle = overlay.firstElementChild
 const body = document.querySelector("body");
 console.log(overlay);
 confirmationSound.volume = .5;
@@ -57,10 +58,13 @@ function playMusic(initial) {
       confirmationSound.play().catch((error) => {
         console.error("Error playing confirmation sound:", error);
       });
-      
+      overlayTitle.innerHTML = ":D"
       
       break;
-
+    case false:
+      overlayTitle.innerHTML = ":("
+      
+      break;
     default:
       break;
   }
