@@ -481,6 +481,7 @@ ul li:active a {
 }
 
 .overlay button{
+  cursor: pointer;
   width: clamp(4rem, 2vw, 5rem);
   padding: .625rem;
   border: none;
@@ -497,6 +498,7 @@ ul li:active a {
 
 .overlay button:hover, .overlay button:active{
   filter: brightness(1.2);
+  color: rgba(var(--text), 1);
 }
 
 .overlay svg{
