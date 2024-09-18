@@ -25,7 +25,8 @@
 
 html,
 body,
-main {
+main,
+aside {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   min-height: 100dvh;
@@ -79,7 +80,7 @@ header div {
   background-size: 200px 1px;
 }
 
-main {
+main, aside {
   background: rgba(var(--bg), 1);
 }
 
@@ -539,4 +540,15 @@ ul li:active a {
 
 @media (prefers-reduced-motion){
   .squiggle{animation: none}
+}
+
+aside h2 {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  grid-column: 1 / -1;
+  background: rgba(var(--inner-bg), 1);
+  border-radius: 0.375rem;
+  padding: 0.375rem;
+
 }
