@@ -29,7 +29,7 @@ main,
 aside {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
-  min-height: 100dvh;
+  min-height: 100vh;
 }
 body{
   overflow: hidden;
@@ -86,7 +86,7 @@ main, aside {
 
 section {
   display: grid;
-  height: 100dvh;
+  height: 100vh;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(4, 1fr);
   gap: 1.25rem;
