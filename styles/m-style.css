@@ -270,6 +270,11 @@ ul li:active a {
   background-color: rgba(var(--bg), 1);
 }
 
+aside figure{
+  grid-column: span 4;
+  grid-row: 2 / 4;
+}
+
 /*scrollbar styling*/
 ::-webkit-scrollbar {
   width: 10px;
@@ -283,8 +288,6 @@ ul li:active a {
   background: rgb(255, 255, 255);
   border-radius: 10px;
 }
-
-@import url("https://fonts.googleapis.com/css?family=Amatic+SC:400,700");
 
 .overlay {
   text-align: center;
