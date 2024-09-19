@@ -61,9 +61,9 @@ cards.forEach((card) => {
             console.error("Audio playback failed:", error);
           });
 
-          // Fade in the volume over 2 seconds (2000ms)
+          // Fade in
           let start = null;
-          const duration = 2000; // 2 seconds fade-in duration
+          const duration = 2000; // miliseconden
 
           const fadeIn = (timestamp) => {
             // voor het geval dat ik de start van de muziek op een later tijdstip wil zetten
@@ -74,7 +74,7 @@ cards.forEach((card) => {
             if (progress < duration) {
               fadeInFrame = requestAnimationFrame(fadeIn);
             } else {
-              currentAudio.volume = 1; // Ensure volume is exactly 1 when the fade completes
+              currentAudio.volume = 1; // zet volume op precies 1 als de fadeIn klaar is
             }
           };
 
@@ -89,11 +89,10 @@ cards.forEach((card) => {
     }
   };
 
-  // Now add the event listeners after the function is defined
+  // event listeners voor beide touch & mouse
   card.addEventListener("mouseenter", handleMouseEnterOrTouchStart);
-  card.addEventListener("touchstart", handleMouseEnterOrTouchStart); // For mobile devices
+  card.addEventListener("touchstart", handleMouseEnterOrTouchStart);
 
-  // Mouseleave for desktops, touchend for mobile
   card.addEventListener("mouseleave", (e) => {
     if (currentAudio instanceof Audio) {
       currentAudio.pause();
@@ -112,12 +111,6 @@ cards.forEach((card) => {
     }
   });
 });
-
-// https://savvy.co.il/en/blog/wordpress-design/css-scroll-snapping/
-// intersection api examples
-
-// https://codepen.io/abirana/pen/GdzQRb
-// play sound on hover
 
 const confirmationSound = new Audio("./assets/audio/yippee.mp3");
 const overlay = document.querySelector(".overlay");
