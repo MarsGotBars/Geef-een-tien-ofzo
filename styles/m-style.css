@@ -92,7 +92,6 @@ section {
   margin: 1.25rem auto;
   max-width: 1200px;
   background: rgba(var(--bg), 1);
-  padding: 1.125rem;
 }
 
 section > div {
@@ -320,6 +319,19 @@ aside figure:hover figcaption, aside figure:active figcaption {
   opacity: 1;
   background: rgba(var(--inner-bg), 0.7);
 }
+
+article p{
+  font-family: var(--font);
+}
+
+article p span{
+  display: block;
+  border-top: .125rem solid rgba(var(--primary), 1);
+  font-weight: 700;
+  color: rgba(var(--secondary), 1);
+  margin-top: .25rem;
+  padding-top: .25rem;
+}
 /*scrollbar styling*/
 ::-webkit-scrollbar {
   width: 10px;
@@ -376,16 +388,50 @@ aside figure:hover figcaption, aside figure:active figcaption {
 }
 
 .overlay button {
+  position: relative; /* This allows z-index to work on the button */
   cursor: pointer;
   width: clamp(4rem, 2vw, 5rem);
   padding: 0.625rem;
-  border-radius: .3125rem;
-  border: none;
+  border-radius: 0.3125rem;
+  border: 0.125rem solid white;
+  color: white;
+  background: rgba(var(--accent), .3);
+  display: flex;
+  justify-content: center;
+  z-index: 1; /* Ensure the button content remains on top */
+  overflow: hidden;
+}
+
+.overlay button span {
+  position: relative; /* Allows the text to be positioned above the ::before */
+  z-index: 2; /* Higher z-index than ::before to ensure text is on top */
+}
+
+.overlay button:nth-child(2)::before, .overlay .decline::before {
+  transform: translateX(100%);
   background: rgba(var(--accent), 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Place the background behind the text */
+  transition: 300ms ease-out;
+}
+
+.overlay button:hover::before{
+  transform: translateX(0);
+  transition: 300ms ease;
 }
 
 .overlay .decline {
+  background-color: rgba(224, 90, 90, .3);
+}
+
+.overlay .decline::before{
   background-color: rgb(224, 90, 90);
+  transform: translateX(-100%);
 }
 
 .overlay p {
@@ -397,10 +443,6 @@ aside figure:hover figcaption, aside figure:active figcaption {
   color: white;
 }
 
-.overlay svg {
-  width: 0;
-  height: 0;
-}
 
 @keyframes squiggly-anim {
   0% {
@@ -450,6 +492,9 @@ section > div.reveal {
 }
 /* medium screen */
 @media screen and (min-width: 720px) {
+  section{
+    padding: 1.125rem;
+  }
   .squiggle,
   .squiggly {
     animation: squiggly-anim 0.34s linear infinite;
