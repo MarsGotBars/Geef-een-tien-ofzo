@@ -1,10 +1,11 @@
 
 # Hummingbird
+[link](https://edu.nl/d9qt9)
 
 Het project van Team Vogel!
-- Luc ![Luc's page](https://debosos.github.io/your-tribe-profile-card/)
-- Marcin ![Marcin's page](https://marsgotbars.github.io/vite-card/)
-- Ole ![Ole's page](https://OFrqq.github.io/your-tribe-profile-card/)
+- Luc [Luc's page](https://debosos.github.io/your-tribe-profile-card/)
+- Marcin [Marcin's page](https://marsgotbars.github.io/vite-card/)
+- Ole [Ole's page](https://OFrqq.github.io/your-tribe-profile-card/)
 
 ## Features
 - Fade in animaties
