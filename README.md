@@ -2,9 +2,14 @@
 # Hummingbird
 
 Het project van Team Vogel!
-- Luc
-- Marcin
-- Ole
+- Luc ![Luc's page](https://debosos.github.io/your-tribe-profile-card/)
+- Marcin ![Marcin's page](https://marsgotbars.github.io/vite-card/)
+- Ole ![Ole's page](https://OFrqq.github.io/your-tribe-profile-card/)
+
+## Features
+- Fade in animaties
+- Muziek on hover op kaartjes
+- Mogelijkheid om muziek aan/uit te hebben staan
 
 ## Wat hebben we hiervoor gebruikt?
 
