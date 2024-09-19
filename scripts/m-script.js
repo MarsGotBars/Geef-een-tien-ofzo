@@ -31,22 +31,39 @@ const observer = new IntersectionObserver(callback, options);
 // elke kaart observeren
 let currentAudio = null;
 cards.forEach((card) => {
+  console.log(card);
+  
   observer.observe(card);
-
-  card.addEventListener("mouseenter", (e) => {
-console.log(audio);
-
-    // let person = e.target.children[0].textContent;
-    let person = "yippee"
+  if (audio) {
+  }
+  card.addEventListener("mouseenter", async (e) => {
+    let person = e.target.children[0].textContent;
+    person = person.toLowerCase();
+    // let person = "yippee";
+    let audioFilePath = `./assets/audio/${person}.mp3`;
     if (currentAudio instanceof Audio) {
       currentAudio.pause();
       currentAudio.currentTime = 0;
     }
-    currentAudio = new Audio(`./assets/audio/${person}.mp3`)
-      .play()
-      .catch((error) => {
-        console.log(`./assets/audio/${person}.mp3 is missing!`, error);
-      });
+
+    if (audio) {
+      try {
+        const response = await fetch(audioFilePath, { method: "HEAD" });
+        
+        if (response.ok) {
+          // If the file exists, create and play the audio
+          currentAudio = new Audio(audioFilePath);  
+          currentAudio.play().catch(error => {
+            console.error("Audio playback failed:", error);
+          });
+        } else {
+          currentAudio = new Audio(`./assets/audio/rickpartykick.mp3`);
+          currentAudio.play();
+        }
+      } catch (error) {
+        console.error("Error checking audio file:", error);
+      }
+    }
   });
 
   card.addEventListener("mouseleave", (e) => {
@@ -65,7 +82,6 @@ console.log(audio);
 // play sound on hover
 
 
-// Enable / Disable audio
 const confirmationSound = new Audio("./assets/audio/yippee.mp3");
 const overlay = document.querySelector(".overlay");
 const overlayTitle = overlay.firstElementChild;
@@ -80,21 +96,17 @@ function playMusic(initial) {
       overlay.style.display = "none";
       body.style.overflow = "auto";
     }, 800);
-    console.log("poof!");
   }
+
   switch (initial) {
     case true:
       confirmationSound.play().catch((error) => {
         console.error("Error playing confirmation sound:", error);
       });
       overlayTitle.innerHTML = ":D";
-
-      break;
-    case false:
-      overlayTitle.innerHTML = ":(";
-
       break;
     default:
+      overlayTitle.innerHTML = ":(";
       break;
   }
 }
