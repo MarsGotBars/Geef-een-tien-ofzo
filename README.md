@@ -45,3 +45,11 @@ Hebben we natuurlijk naar webp omgezet `(elk plaatje is zo ongeveer tussen de 25
 - [x] receive some songs
 - [x] add em!
 - [x] script 'em in
+
+## layout gallery
+
+### large screen
+![large screen](https://github.com/user-attachments/assets/a87182de-061e-46a1-8297-5ca7eab23f4d)
+
+### small screen
+![small screen](https://github.com/user-attachments/assets/679adf6b-796a-4faa-b5f1-1f326f6259f5)
