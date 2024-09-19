@@ -44,7 +44,6 @@ cards.forEach((card) => {
       currentAudio.pause();
       currentAudio.currentTime = 0;
     }
-    console.log(audioEnabled);
     
     if (audioEnabled) {
       try {
