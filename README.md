@@ -1,21 +1,32 @@
 
-# Squad page
+# Hummingbird
 
-Ontwerp en maak met een team een Squad Page met HTML, CSS en JS.
+Het project van Team Vogel!
+- Luc
+- Marcin
+- Ole
 
-De instructie van deze leertaak staan in de [INSTRUCTIONS.md](https://github.com/fdnd-task/your-tribe-squad-page/blob/main/docs/INSTRUCTIONS.md)
+## Wat hebben we hiervoor gebruikt?
 
-## Licentie
+- HTML
+- CSS
+- JS
+- heleboel plaatjes
+- heleboel audio
 
-This project is licensed under the terms of the [MIT license](./LICENSE).
+## Hoe zijn jullie plaatjes zo licht?
+
+Hebben we natuurlijk naar webp omgezet `(elk plaatje is zo ongeveer tussen de 25-50% lichter geworden)`! 10mb per plaatje is namelijk wel heel groot...
 
 ## To do
 
+- [x] vogel
+![crack vogel](assets/Enge_vogel.svg)
 - animation related
-- [ ]  fade-in (both desktop & mobile)
-    - optional
+- [x]  fade-in (both desktop & mobile)
+    - optional (uiteindelijk nooit gedaan)
     - [ ]  parallax effect
 
 - image container
-- [ ] get images of students
-- [ ] change grid on mobile
+- [x] get images of students
+- [x] change grid on mobile
