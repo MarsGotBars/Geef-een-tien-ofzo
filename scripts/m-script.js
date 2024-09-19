@@ -35,65 +35,66 @@ let fadeInFrame = null;
 cards.forEach((card) => {
   observer.observe(card);
 
-  // Define the function before using it in event listeners
+  // functie voor touch & mouse
   const handleMouseEnterOrTouchStart = async (e) => {
     console.log(e.target);
-    
+
     let person = e.target.children[0].textContent;
-    person = person.toLowerCase();
+    person = person.replace(/\s+/g, "-").toLowerCase();
     let audioFilePath = `./assets/songs/${person}.mp3`;
 
-    // Stop and reset the current audio if it's playing
+    // reset audio track
     if (currentAudio instanceof Audio) {
-      cancelAnimationFrame(fadeInFrame); // Cancel any existing fade animation
+      // cancel de animationframe functie
+      cancelAnimationFrame(fadeInFrame);
       currentAudio.pause();
       currentAudio.currentTime = 0;
     }
+    if (audio) {
+      try {
+        // Check if the audio file exists
+        const response = await fetch(audioFilePath, { method: "HEAD" });
 
-    try {
-      // Check if the audio file exists
-      const response = await fetch(audioFilePath, { method: "HEAD" });
-      
-      if (response.ok) {
-        // Create a new audio instance for the current card
-        currentAudio = new Audio(audioFilePath);
-        currentAudio.volume = 0; // Start with volume at 0
+        if (response.ok) {
+          // Create a new audio instance for the current card
+          currentAudio = new Audio(audioFilePath);
+          currentAudio.volume = 0; // Start with volume at 0
 
-        // Play the audio
-        currentAudio.play().catch(error => {
-          console.error("Audio playback failed:", error);
-        });
+          // Play the audio
+          currentAudio.play().catch((error) => {
+            console.error("Audio playback failed:", error);
+          });
 
-        // Fade in the volume over 2 seconds (2000ms)
-        let start = null;
-        const duration = 2000; // 2 seconds fade-in duration
+          // Fade in the volume over 2 seconds (2000ms)
+          let start = null;
+          const duration = 2000; // 2 seconds fade-in duration
 
-        const fadeIn = (timestamp) => {
-          if (!start) start = timestamp;
-          const progress = timestamp - start;
-          currentAudio.volume = Math.min(progress / duration, 1); // Increase volume based on elapsed time
+          const fadeIn = (timestamp) => {
+            if (!start) start = timestamp;
+            const progress = timestamp - start;
+            currentAudio.volume = Math.min(progress / duration, 1); // Increase volume based on elapsed time
 
-          if (progress < duration) {
-            fadeInFrame = requestAnimationFrame(fadeIn);
-          } else {
-            currentAudio.volume = 1; // Ensure volume is exactly 1 when the fade completes
-          }
-        };
+            if (progress < duration) {
+              fadeInFrame = requestAnimationFrame(fadeIn);
+            } else {
+              currentAudio.volume = 1; // Ensure volume is exactly 1 when the fade completes
+            }
+          };
 
-        fadeInFrame = requestAnimationFrame(fadeIn);
-
-      } else {
-        currentAudio = new Audio("./assets/songs/rickpartykick.mp3");
-        currentAudio.play();
+          fadeInFrame = requestAnimationFrame(fadeIn);
+        } else {
+          currentAudio = new Audio("./assets/songs/rickpartykick.mp3");
+          currentAudio.play();
+        }
+      } catch (error) {
+        console.error("Error checking audio file:", error);
       }
-    } catch (error) {
-      console.error("Error checking audio file:", error);
     }
   };
 
   // Now add the event listeners after the function is defined
   card.addEventListener("mouseenter", handleMouseEnterOrTouchStart);
-  card.addEventListener("touchstart", handleMouseEnterOrTouchStart);  // For mobile devices
+  card.addEventListener("touchstart", handleMouseEnterOrTouchStart); // For mobile devices
 
   // Mouseleave for desktops, touchend for mobile
   card.addEventListener("mouseleave", (e) => {
@@ -116,9 +117,6 @@ cards.forEach((card) => {
     }
   });
 });
-
-
-
 
 // https://savvy.co.il/en/blog/wordpress-design/css-scroll-snapping/
 // intersection api examples
