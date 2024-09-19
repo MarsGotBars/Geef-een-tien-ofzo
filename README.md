@@ -22,11 +22,20 @@ Hebben we natuurlijk naar webp omgezet `(elk plaatje is zo ongeveer tussen de 25
 
 - [x] vogel
 ![crack vogel](assets/Enge_vogel.svg)
-- animation related
+### animation related
 - [x]  fade-in (both desktop & mobile)
     - optional (uiteindelijk nooit gedaan)
     - [ ]  parallax effect
 
-- image container
+### image container
 - [x] get images of students
 - [x] change grid on mobile
+
+### kekke plekkjes
+- [x] get images of spots
+- [x] choose our favorites
+
+### music
+- [x] receive some songs
+- [x] add em!
+- [x] script 'em in
