@@ -1,6 +1,8 @@
 window.onload = () => {
   window.scrollTo(0, 0);
-}
+};
+
+let audio = false;
 // pak alle divs die een figure element bevatten
 const cards = [...document.querySelectorAll("div:has(figure)")];
 
@@ -27,9 +29,35 @@ const callback = (entries) => {
 const observer = new IntersectionObserver(callback, options);
 
 // elke kaart observeren
+let currentAudio = null;
 cards.forEach((card) => {
   observer.observe(card);
+
+  card.addEventListener("mouseenter", (e) => {
+console.log(audio);
+
+    // let person = e.target.children[0].textContent;
+    let person = "yippee"
+    if (currentAudio instanceof Audio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
+    currentAudio = new Audio(`./assets/audio/${person}.mp3`)
+      .play()
+      .catch((error) => {
+        console.log(`./assets/audio/${person}.mp3 is missing!`, error);
+      });
+  });
+
+  card.addEventListener("mouseleave", (e) => {
+    if (currentAudio instanceof Audio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+      currentAudio = null;
+    }
+  });
 });
+
 // https://savvy.co.il/en/blog/wordpress-design/css-scroll-snapping/
 // intersection api examples
 
@@ -40,31 +68,31 @@ cards.forEach((card) => {
 // Enable / Disable audio
 const confirmationSound = new Audio("./assets/audio/yippee.mp3");
 const overlay = document.querySelector(".overlay");
-const overlayTitle = overlay.firstElementChild
+const overlayTitle = overlay.firstElementChild;
 const body = document.querySelector("body");
-console.log(overlay);
-confirmationSound.volume = .5;
+confirmationSound.volume = 0.5;
 
 function playMusic(initial) {
+  audio = initial;
   if (!overlay.classList.contains("vanish")) {
     overlay.classList.add("vanish");
     setTimeout(() => {
       overlay.style.display = "none";
       body.style.overflow = "auto";
     }, 800);
-    console.log('poof!');
+    console.log("poof!");
   }
   switch (initial) {
     case true:
       confirmationSound.play().catch((error) => {
         console.error("Error playing confirmation sound:", error);
       });
-      overlayTitle.innerHTML = ":D"
-      
+      overlayTitle.innerHTML = ":D";
+
       break;
     case false:
-      overlayTitle.innerHTML = ":("
-      
+      overlayTitle.innerHTML = ":(";
+
       break;
     default:
       break;
