@@ -14,7 +14,7 @@ Het project van Team Vogel!
 - heleboel plaatjes
 - heleboel audio
 
-## Hoe zijn jullie plaatjes zo licht?
+## Hoe zijn jullie plaatjes zo klein qua MBs?
 
 Hebben we natuurlijk naar webp omgezet `(elk plaatje is zo ongeveer tussen de 25-50% lichter geworden)`! 10mb per plaatje is namelijk wel heel groot...
 
