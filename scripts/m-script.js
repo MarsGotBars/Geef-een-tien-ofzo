@@ -44,6 +44,8 @@ cards.forEach((card) => {
       currentAudio.pause();
       currentAudio.currentTime = 0;
     }
+    console.log(audioEnabled);
+    
     if (audioEnabled) {
       try {
         // Check if the audio file exists
@@ -124,7 +126,7 @@ const body = document.querySelector("body");
 confirmationSound.volume = 0.5;
 
 function playMusic(initial) {
-  audio = initial;
+  audioEnabled = initial;
   if (!overlay.classList.contains("vanish")) {
     overlay.classList.add("vanish");
     setTimeout(() => {
