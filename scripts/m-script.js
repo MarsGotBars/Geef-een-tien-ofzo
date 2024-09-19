@@ -1,15 +1,11 @@
-window.onload = () => {
-  window.scrollTo(0, 0);
-};
-
-let audio = false;
+let audioEnabled = false;
 // pak alle divs die een figure element bevatten
 const cards = [...document.querySelectorAll("div:has(figure)")];
-
+let threshold = .25
 // margin van de root (document) en threshold voor de intersections
 const options = {
   rootMargin: "0px",
-  threshold: 0.25,
+  threshold: threshold,
 };
 // callback functie voor alle entries
 const callback = (entries) => {
@@ -18,7 +14,7 @@ const callback = (entries) => {
     // creeër een target
     const { target } = entry;
     // als het binnen/boven de intersection valt voeg dan een class toe of verwijder deze
-    if (entry.intersectionRatio >= 0.25) {
+    if (entry.intersectionRatio >= threshold) {
       target.classList.add("reveal");
     } else {
       target.classList.remove("reveal");
@@ -37,8 +33,6 @@ cards.forEach((card) => {
 
   // functie voor touch & mouse
   const handleMouseEnterOrTouchStart = async (e) => {
-    console.log(e.target);
-
     let person = e.target.children[0].textContent;
     person = person.replace(/\s+/g, "-").toLowerCase();
     let audioFilePath = `./assets/songs/${person}.mp3`;
@@ -50,7 +44,7 @@ cards.forEach((card) => {
       currentAudio.pause();
       currentAudio.currentTime = 0;
     }
-    if (audio) {
+    if (audioEnabled) {
       try {
         // Check if the audio file exists
         const response = await fetch(audioFilePath, { method: "HEAD" });
@@ -70,10 +64,11 @@ cards.forEach((card) => {
           const duration = 2000; // 2 seconds fade-in duration
 
           const fadeIn = (timestamp) => {
+            // voor het geval dat ik de start van de muziek op een later tijdstip wil zetten
             if (!start) start = timestamp;
             const progress = timestamp - start;
             currentAudio.volume = Math.min(progress / duration, 1); // Increase volume based on elapsed time
-
+            // loop de functie tot het geluid op het correcte volume zit
             if (progress < duration) {
               fadeInFrame = requestAnimationFrame(fadeIn);
             } else {
@@ -99,7 +94,6 @@ cards.forEach((card) => {
   // Mouseleave for desktops, touchend for mobile
   card.addEventListener("mouseleave", (e) => {
     if (currentAudio instanceof Audio) {
-      console.log("pause");
       currentAudio.pause();
       currentAudio.currentTime = 0;
       currentAudio = null;
@@ -109,7 +103,6 @@ cards.forEach((card) => {
 
   card.addEventListener("touchend", (e) => {
     if (currentAudio instanceof Audio) {
-      console.log("pause");
       currentAudio.pause();
       currentAudio.currentTime = 0;
       currentAudio = null;

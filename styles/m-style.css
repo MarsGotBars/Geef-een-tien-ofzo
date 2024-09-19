@@ -62,7 +62,7 @@ header a {
 }
 
 header {
-  backdrop-filter: blur(0.5px);
+  backdrop-filter: blur(.5px);
 }
 
 header div {
@@ -89,10 +89,10 @@ section {
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(4, 1fr);
   gap: 1.25rem;
-  margin: 0 auto;
+  margin: 1.25rem auto;
   max-width: 1200px;
   background: rgba(var(--bg), 1);
-  padding: 1.25rem 0;
+  padding: 1.125rem;
 }
 
 section > div {
@@ -117,7 +117,7 @@ div figure::after {
   width: 100%;
   height: 100%;
   background: transparent;
-  transition: all 300ms cubic-bezier(0.5, 0.05, 0.795, 0.035);
+  transition: all 300ms cubic-bezier(.5, 0.05, 0.795, 0.035);
   z-index: 3;
 }
 
@@ -194,13 +194,13 @@ html {
 figure > div {
   color: rgba(var(--text), 1);
   background: rgba(var(--inner-bg), 1);
-  padding: 0.5rem;
+  padding: .5rem;
   display: flex;
   position: absolute;
   height: 100%;
   width: fit-content;
   z-index: 5;
-  transition: all 300ms cubic-bezier(0.5, 0.05, 0.795, 0.035);
+  transition: all 300ms cubic-bezier(.5, 0.05, 0.795, 0.035);
 }
 
 div:nth-child(1) figure > div {
@@ -269,30 +269,29 @@ ul li:active a {
   background-color: rgba(var(--bg), 1);
 }
 
-aside section{
+aside section {
   height: fit-content;
   flex-direction: column;
   display: flex;
   align-items: center;
-
 }
 
-aside article{
+aside article {
   display: flex;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1.125rem;
 }
 
-
-aside section figure{
+aside section figure {
   position: relative;
   width: 320px;
   border-radius: 0.375rem;
   overflow: hidden;
 }
 
-aside figure::after{
+aside figure::after {
   content: "";
   position: absolute;
   top: 0;
@@ -300,10 +299,10 @@ aside figure::after{
   z-index: 10;
   width: 100%;
   height: 100%;
-  transition: .3s;
+  transition: 0.3s;
 }
 
-aside figure figcaption{
+aside figure figcaption {
   position: absolute;
   display: grid;
   place-content: center;
@@ -317,7 +316,7 @@ aside figure figcaption{
   text-align: center;
 }
 
-aside figure:hover figcaption{
+aside figure:hover figcaption, aside figure:active figcaption {
   opacity: 1;
   background: rgba(var(--inner-bg), 0.7);
 }
@@ -336,6 +335,8 @@ aside figure:hover figcaption{
 }
 
 .overlay {
+  top: 0;
+  left: 0;
   text-align: center;
   position: fixed;
   width: 100%;
@@ -349,7 +350,7 @@ aside figure:hover figcaption{
   background: rgba(var(--inner-bg), 1);
   color: white;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   font-size: clamp(4rem, 3vw, 5rem);
 }
@@ -368,10 +369,17 @@ aside figure:hover figcaption{
   }
 }
 
+.overlay div:has(button){
+  display: flex;
+  gap: 1.125rem;
+  justify-content: center;
+}
+
 .overlay button {
   cursor: pointer;
   width: clamp(4rem, 2vw, 5rem);
   padding: 0.625rem;
+  border-radius: .3125rem;
   border: none;
   background: rgba(var(--accent), 1);
 }
@@ -381,12 +389,11 @@ aside figure:hover figcaption{
 }
 
 .overlay p {
-  font-size: 2rem;
+  font-size:1.875rem;
 }
 
 .overlay button:hover,
 .overlay button:active {
-  filter: hue-rotate(30deg);
   color: white;
 }
 
@@ -457,7 +464,7 @@ section > div.reveal {
 
   figure > div {
     width: 100%;
-    height: fit-content;
+    height: auto;
   }
 
   ul {
@@ -514,7 +521,7 @@ section > div.reveal {
   div h2 {
     z-index: 1;
     opacity: 0;
-    transition: cubic-bezier(0.5, 0.05, 0.795, 0.035) 300ms;
+    transition: cubic-bezier(.5, 0.05, 0.795, 0.035) 300ms;
   }
 
   div:hover h2 {
@@ -540,23 +547,24 @@ section > div.reveal {
   }
   div:nth-child(1) h2 {
     padding: 0 0.625rem 0.3125rem 0.625rem;
-    border-radius: 0 0 0.5rem 0.5rem;
+    border-radius: 0 0 .5rem .5rem;
   }
 
   div:nth-child(2) h2 {
     padding: 0.3125rem 0.625rem 0 0.625rem;
-    border-radius: 0.5rem 0.5rem 0 0;
+    border-radius: .5rem .5rem 0 0;
   }
 
   section {
     grid-template-columns: repeat(12, 1fr);
-    border-left: 1px solid rgba(var(--accent), 0.5);
-    border-right: 1px solid rgba(var(--accent), 0.5);
+    border: .5px solid rgba(var(--accent), .5);
+    border-left: 1px solid rgba(var(--accent), .5);
+    border-right: 1px solid rgba(var(--accent), .5);
     background-size: 10px 10px;
     background-image: repeating-linear-gradient(
       45deg,
-      rgba(var(--accent), 0.5) 0,
-      rgba(var(--accent), 0.5) 0.125rem,
+      rgba(var(--accent), .5) 0,
+      rgba(var(--accent), .5) 0.125rem,
       transparent 0,
       transparent 50%
     );
@@ -579,10 +587,6 @@ section > div.reveal {
     grid-row: span 2;
     grid-row-end: 4;
     width: fit-content;
-  }
-  /* kleine fix om de background goed uit te lijnen */
-  section:nth-child(odd) {
-    background-position: 0 0.65rem;
   }
 }
 @media (prefers-reduced-motion) {
