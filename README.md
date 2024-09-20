@@ -1,21 +1,55 @@
 
-# Squad page
+# Hummingbird
+[link](https://edu.nl/d9qt9)
 
-Ontwerp en maak met een team een Squad Page met HTML, CSS en JS.
+Het project van Team Vogel!
+- Luc [Luc's page](https://debosos.github.io/your-tribe-profile-card/)
+- Marcin [Marcin's page](https://marsgotbars.github.io/vite-card/)
+- Ole [Ole's page](https://OFrqq.github.io/your-tribe-profile-card/)
 
-De instructie van deze leertaak staan in de [INSTRUCTIONS.md](https://github.com/fdnd-task/your-tribe-squad-page/blob/main/docs/INSTRUCTIONS.md)
+## Features
+- Fade in animaties
+- Muziek on hover op kaartjes
+- Mogelijkheid om muziek aan/uit te hebben staan
 
-## Licentie
+## Wat hebben we hiervoor gebruikt?
 
-This project is licensed under the terms of the [MIT license](./LICENSE).
+- HTML
+- CSS
+- JS
+- heleboel plaatjes
+- heleboel audio
+
+## Hoe zijn jullie plaatjes zo klein qua MBs?
+
+Hebben we natuurlijk naar webp omgezet `(elk plaatje is zo ongeveer tussen de 25-50% lichter geworden)`! 10mb per plaatje is namelijk wel heel groot...
 
 ## To do
 
-- animation related
-- [ ]  fade-in (both desktop & mobile)
-    - optional
+- [x] vogel
+![crack vogel](assets/Enge_vogel.svg)
+### animation related
+- [x]  fade-in (both desktop & mobile)
+    - optional (uiteindelijk nooit gedaan)
     - [ ]  parallax effect
 
-- image container
-- [ ] get images of students
-- [ ] change grid on mobile
+### image container
+- [x] get images of students
+- [x] change grid on mobile
+
+### kekke plekkjes
+- [x] get images of spots
+- [x] choose our favorites
+
+### music
+- [x] receive some songs
+- [x] add em!
+- [x] script 'em in
+
+## layout gallery
+
+### large screen
+![large screen](https://github.com/user-attachments/assets/a87182de-061e-46a1-8297-5ca7eab23f4d)
+
+### small screen
+![small screen](https://github.com/user-attachments/assets/679adf6b-796a-4faa-b5f1-1f326f6259f5)
