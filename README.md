@@ -1,4 +1,4 @@
-
+! reload de pagina voor de volgende mensen !
 # Hummingbird
 [link](https://edu.nl/d9qt9)
 
